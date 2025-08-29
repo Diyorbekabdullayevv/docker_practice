@@ -5,7 +5,7 @@ import "github.com/gin-gonic/gin"
 func main() {
 	server := gin.Default()
 
-	server.GET("/crazy_docker", dockerGet)
+	server.GET("/docker", dockerGet)
 
 	server.Run(":8080")
 }
