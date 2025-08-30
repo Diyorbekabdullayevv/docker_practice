@@ -1,22 +1,12 @@
-# -------- Build Stage --------
-FROM golang:1.24.1 AS builder
+FROM golang
 
-WORKDIR /app
-
-COPY go.mod go.sum ./
-RUN go mod download
+WORKDIR /docker_practice
 
 COPY . .
-RUN go build -o server .
-
-# -------- Run Stage --------
-FROM debian:bookworm-slim
-
-WORKDIR /app
-COPY --from=builder /app/server .
 
 EXPOSE 8080
-CMD ["./server"]
+
+CMD ["go", "run", "main.go"]
 
 
 # # Use the official Golang image
