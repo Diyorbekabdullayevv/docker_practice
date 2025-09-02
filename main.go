@@ -1,36 +1,17 @@
 package main
 
 import (
-	"fmt"
-
 	"github.com/gin-gonic/gin"
 )
 
-var numbers = []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
-
 func main() {
-	fmt.Println("Numbers:", cutTheLastOne(numbers))
-	numbers = numbers[1:]
-	fmt.Println(numbers)
+
 	server := gin.Default()
 
 	server.GET("/docker", dockerGet)
 	server.GET("/bocker", redirect)
 
 	server.Run(":8080")
-}
-
-func cutTheLastOne(numbers []int) []int {
-
-	numbers = numbers[:len(numbers)-1]
-
-	if len(numbers) == 2 {
-		fmt.Println("I can`t cut you anymore. You are too short!")
-		fmt.Println("")
-		return numbers
-	}
-	numbers = cutTheLastOne(numbers)
-	return numbers
 }
 
 func dockerGet(ctx *gin.Context) {
@@ -62,6 +43,9 @@ func redirect(ctx *gin.Context) {
 </head>
 <body>
 	<h1 style="color: blue;">Docker stil is a crazy tool!</h1>
+	<a href="http://localhost:8080/docker">
+            <button style="color: blue">Get back to home page</button></a
+        >
 </body>
 </html>`))
 }
