@@ -4,7 +4,7 @@ WORKDIR /docker_practice
 
 COPY . .
 
-EXPOSE 8080
+EXPOSE 8000
 
 CMD ["go", "run", "main.go"]
 

@@ -11,7 +11,7 @@ func main() {
 	server.GET("/docker", dockerGet)
 	server.GET("/bocker", redirect)
 
-	server.Run(":8080")
+	server.Run(":8000")
 }
 
 func dockerGet(ctx *gin.Context) {
@@ -25,7 +25,7 @@ func dockerGet(ctx *gin.Context) {
 </head>
 <body>
 	<h1 style="color: blue;">Docker is a crazy tool!</h1>
-	 <a href="http://localhost:8080/bocker">
+	 <a href="http://localhost:8000/bocker">
             <button style="color: blue">Get started with Docker</button></a
         >
 </body>
@@ -43,7 +43,7 @@ func redirect(ctx *gin.Context) {
 </head>
 <body>
 	<h1 style="color: blue;">Docker stil is a crazy tool!</h1>
-	<a href="http://localhost:8080/docker">
+	<a href="http://localhost:8000/docker">
             <button style="color: blue">Get back to home page</button></a
         >
 </body>
